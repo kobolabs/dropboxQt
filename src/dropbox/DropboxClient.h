@@ -1,8 +1,8 @@
 #pragma once
-#include "dropbox/endpoint/ApiUtil.h"
-#include "dropbox/endpoint/DropboxAuthInfo.h"
-#include "dropbox/endpoint/ApiException.h"
-#include "dropbox/endpoint/ApiClient.h"
+#include <dropbox/endpoint/ApiUtil.h>
+#include <dropbox/endpoint/DropboxAuthInfo.h>
+#include <dropbox/endpoint/ApiException.h>
+#include <dropbox/endpoint/ApiClient.h>
 
 namespace dropboxQt{
 

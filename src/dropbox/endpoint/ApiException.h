@@ -43,8 +43,8 @@ namespace dropboxQt{
                 {
                     QJsonDocument doc = QJsonDocument::fromJson(data);
                     QJsonObject js_in = doc.object();
-                    err.fromJson(js_in["error"].toObject());
-                    summary = js_in["error_summary"].toString().toStdString();
+                    err.fromJson(js_in[QLatin1String("error")].toObject());
+                    summary = js_in[QLatin1String("error_summary")].toString().toStdString();
                 }
             return std::unique_ptr<E>(new E(err, summary, status_code, message));
         };

@@ -23,7 +23,7 @@ namespace files{
         DownloadError_OTHER
         };
 
-        DownloadError(){}
+        DownloadError():m_tag(DownloadError_PATH){}
         DownloadError(Tag v):m_tag(v){}
         virtual ~DownloadError(){}
 

@@ -28,7 +28,7 @@ namespace files{
         MediaInfo_METADATA
         };
 
-        MediaInfo(){}
+        MediaInfo():m_tag(MediaInfo_PENDING){}
         MediaInfo(Tag v):m_tag(v){}
         virtual ~MediaInfo(){}
 

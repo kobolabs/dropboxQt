@@ -242,6 +242,7 @@ namespace dropboxQt{
             addAuthHeader(req);
             QJsonDocument doc(js_out);
             req.setRawHeader("Dropbox-API-Arg", doc.toJson(QJsonDocument::Compact));
+            req.setRawHeader("Content-Type", "application/octet-stream");
 
             RESULT_FACTORY factory;
             QByteArray bytes2post;

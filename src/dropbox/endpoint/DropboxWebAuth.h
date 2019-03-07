@@ -20,7 +20,7 @@ namespace dropboxQt{
             antiCSRFstate - up to 500 bytes of arbitrary data that will be delivered along
             with code to the redirect URI. CSRF stands for "cross-site request forgery"
         */
-        static QString getCodeAuthorizeUrl(const DropboxAppInfo& appInfo, QString redirectUrl = "", QString antiCSRFstate = "");
+        static QString getCodeAuthorizeUrl(const DropboxAppInfo& appInfo, QString redirectUrl = QLatin1String(""), QString antiCSRFstate = QLatin1String(""));
 
         /**
            getTokenFromCode - makes http call to Dropbox to retrive
