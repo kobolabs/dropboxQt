@@ -27,7 +27,7 @@ QString DropboxWebAuth::getCodeAuthorizeUrl(const DropboxAppInfo& appInfo, QStri
     return url.toString();
 };
 
-DropboxAuthInfo DropboxWebAuth::getTokenFromCode(const DropboxAppInfo& appInfo, QString code)
+DropboxAuthInfo DropboxWebAuth::getTokenFromCode(const DropboxAppInfo& appInfo, QString code, QString redirectUrl)
 {
     QNetworkAccessManager mgr;
     QEventLoop            loop;
@@ -36,6 +36,9 @@ DropboxAuthInfo DropboxWebAuth::getTokenFromCode(const DropboxAppInfo& appInfo, 
     QUrlQuery q;
     q.addQueryItem("grant_type", "authorization_code");
     q.addQueryItem("code", code.toStdString().c_str());
+    if(!redirectUrl.isEmpty()){
+        q.addQueryItem("redirect_uri", redirectUrl.toStdString().c_str());
+    }
     q.addQueryItem("client_id", appInfo.getKey().toStdString().c_str());
     q.addQueryItem("client_secret", appInfo.getSecret().toStdString().c_str());
     url.setQuery(q);

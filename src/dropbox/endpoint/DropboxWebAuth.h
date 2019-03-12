@@ -26,7 +26,7 @@ namespace dropboxQt{
            getTokenFromCode - makes http call to Dropbox to retrive
            access token by providing authorize code
          */
-        static DropboxAuthInfo getTokenFromCode(const DropboxAppInfo& appInfo, QString code);
+        static DropboxAuthInfo getTokenFromCode(const DropboxAppInfo& appInfo, QString code, QString redirectUrl = QLatin1String(""));
 
         /**
            getCodeFromRedirectServer - this is not a Dropbox utility, it queries client maintained web server that will keep temporary
