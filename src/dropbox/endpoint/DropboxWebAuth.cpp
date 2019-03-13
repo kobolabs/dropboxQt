@@ -24,7 +24,7 @@ QString DropboxWebAuth::getCodeAuthorizeUrl(const DropboxAppInfo& appInfo, QStri
         q.addQueryItem("state", antiCSRFstate);
     }
     url.setQuery(q);
-    return url.toString();
+    return url.toString(QUrl::EncodeSpaces);
 };
 
 DropboxAuthInfo DropboxWebAuth::getTokenFromCode(const DropboxAppInfo& appInfo, QString code, QString redirectUrl)
