@@ -40,7 +40,7 @@ namespace files{
         LookupError_OTHER
         };
 
-        LookupError(){}
+        LookupError():m_tag(LookupError_OTHER){}
         LookupError(Tag v):m_tag(v){}
         virtual ~LookupError(){}
 
