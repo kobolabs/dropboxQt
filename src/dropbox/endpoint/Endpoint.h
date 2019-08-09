@@ -259,11 +259,20 @@ namespace dropboxQt{
 
             QObject::connect(reply, &QNetworkReply::finished, [=]()
                              {
+                                 auto error = reply->error();
                                  int status_code = reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
                                  switch (status_code)
                                      {
                                      case 200:
                                          {
+                                             if (failed_callback != nullptr && error != QNetworkReply::NoError)
+                                                 {
+                                                     std::string errorInfo = QString::fromUtf8("ERROR. QNetworkReply has error: %1").arg(error).toStdString();
+                                                     failed_callback(EXCEPTION::create(QByteArray(),
+                                                                                       status_code,
+                                                                                       errorInfo));
+                                                     break;
+                                                 }
                                              if (completed_callback != nullptr)
                                                  {
                                                      completed_callback(factory.create(QByteArray()));
