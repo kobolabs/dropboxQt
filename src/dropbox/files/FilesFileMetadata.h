@@ -120,6 +120,11 @@ namespace files{
         bool hasExplicitSharedMembers()const{return m_has_explicit_shared_members;};
         FileMetadata& setHasexplicitsharedmembers(const bool& arg){m_has_explicit_shared_members=arg;return *this;};
 
+            /**
+             */
+        QString contentHash()const{return m_content_hash;};
+        FileMetadata& setContentHash(const QString& arg){m_content_hash=arg;return *this;};
+
     public:
         operator QJsonObject ()const;
         virtual void fromJson(const QJsonObject& js);
@@ -194,6 +199,10 @@ namespace files{
                 not contained within  a shared folder.
             */
         bool m_has_explicit_shared_members;
+
+           /**
+            */
+        QString m_content_hash;
 
     };//FileMetadata
 

@@ -37,6 +37,8 @@ void FileMetadata::toJson(QJsonObject& js)const{
     js["sharing_info"] = (QJsonObject)m_sharing_info;
     js["property_groups"] = struct_list2jsonarray(m_property_groups);
     js["has_explicit_shared_members"] = m_has_explicit_shared_members;
+    if (!m_content_hash.isEmpty())
+        js["content_hash"] = QString(m_content_hash);
 }
 
 void FileMetadata::fromJson(const QJsonObject& js){
@@ -51,6 +53,7 @@ void FileMetadata::fromJson(const QJsonObject& js){
     m_sharing_info.fromJson(js["sharing_info"].toObject());
     jsonarray2struct_list(js["property_groups"].toArray(), m_property_groups);
     m_has_explicit_shared_members = js["has_explicit_shared_members"].toVariant().toBool();
+    m_content_hash = js["content_hash"].toString();
 }
 
 QString FileMetadata::toString(bool multiline)const
