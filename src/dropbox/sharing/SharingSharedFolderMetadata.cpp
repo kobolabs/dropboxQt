@@ -45,6 +45,7 @@ void SharedFolderMetadata::fromJson(const QJsonObject& js){
     m_shared_folder_id = js["shared_folder_id"].toString();
     jsonarray2struct_list(js["permissions"].toArray(), m_permissions);
     m_time_invited = QDateTime::fromString(js["time_invited"].toString(), "yyyy-MM-ddThh:mm:ssZ");
+    m_time_invited.setTimeSpec(Qt::UTC);
     m_preview_url = js["preview_url"].toString();
 }
 

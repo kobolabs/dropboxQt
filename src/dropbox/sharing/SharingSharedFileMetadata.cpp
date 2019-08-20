@@ -54,6 +54,7 @@ void SharedFileMetadata::fromJson(const QJsonObject& js){
     m_name = js["name"].toString();
     m_id = js["id"].toString();
     m_time_invited = QDateTime::fromString(js["time_invited"].toString(), "yyyy-MM-ddThh:mm:ssZ");
+    m_time_invited.setTimeSpec(Qt::UTC);
 }
 
 QString SharedFileMetadata::toString(bool multiline)const

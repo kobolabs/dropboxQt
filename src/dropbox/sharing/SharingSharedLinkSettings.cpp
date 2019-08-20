@@ -35,6 +35,7 @@ void SharedLinkSettings::fromJson(const QJsonObject& js){
     m_requested_visibility.fromJson(js["requested_visibility"].toObject());
     m_link_password = js["link_password"].toString();
     m_expires = QDateTime::fromString(js["expires"].toString(), "yyyy-MM-ddThh:mm:ssZ");
+    m_expires.setTimeSpec(Qt::UTC);
 }
 
 QString SharedLinkSettings::toString(bool multiline)const

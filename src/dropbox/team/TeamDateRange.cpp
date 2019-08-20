@@ -32,7 +32,9 @@ void DateRange::toJson(QJsonObject& js)const{
 void DateRange::fromJson(const QJsonObject& js){
 
     m_start_date = QDateTime::fromString(js["start_date"].toString(), "yyyy-MM-ddThh:mm:ssZ");
+    m_start_date.setTimeSpec(Qt::UTC);
     m_end_date = QDateTime::fromString(js["end_date"].toString(), "yyyy-MM-ddThh:mm:ssZ");
+    m_end_date.setTimeSpec(Qt::UTC);
 }
 
 QString DateRange::toString(bool multiline)const

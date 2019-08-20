@@ -46,6 +46,7 @@ void SharedLinkMetadata::fromJson(const QJsonObject& js){
     m_id = js["id"].toString();
     m_name = js["name"].toString();
     m_expires = QDateTime::fromString(js["expires"].toString(), "yyyy-MM-ddThh:mm:ssZ");
+    m_expires.setTimeSpec(Qt::UTC);
     m_path_lower = js["path_lower"].toString();
     m_link_permissions.fromJson(js["link_permissions"].toObject());
     m_team_member_info.fromJson(js["team_member_info"].toObject());

@@ -46,7 +46,9 @@ void FileMetadata::fromJson(const QJsonObject& js){
     Metadata::fromJson(js);
     m_id = js["id"].toString();
     m_client_modified = QDateTime::fromString(js["client_modified"].toString(), "yyyy-MM-ddThh:mm:ssZ");
+    m_client_modified.setTimeSpec(Qt::UTC);
     m_server_modified = QDateTime::fromString(js["server_modified"].toString(), "yyyy-MM-ddThh:mm:ssZ");
+    m_server_modified.setTimeSpec(Qt::UTC);
     m_rev = js["rev"].toString();
     m_size = js["size"].toVariant().toString().toULongLong();
     m_media_info.fromJson(js["media_info"].toObject());

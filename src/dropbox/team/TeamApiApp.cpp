@@ -43,6 +43,7 @@ void ApiApp::fromJson(const QJsonObject& js){
     m_publisher = js["publisher"].toString();
     m_publisher_url = js["publisher_url"].toString();
     m_linked = QDateTime::fromString(js["linked"].toString(), "yyyy-MM-ddThh:mm:ssZ");
+    m_linked.setTimeSpec(Qt::UTC);
     m_is_app_folder = js["is_app_folder"].toVariant().toBool();
 }
 

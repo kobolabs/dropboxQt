@@ -37,7 +37,9 @@ void FileLinkMetadata::fromJson(const QJsonObject& js){
 
     SharedLinkMetadata::fromJson(js);
     m_client_modified = QDateTime::fromString(js["client_modified"].toString(), "yyyy-MM-ddThh:mm:ssZ");
+    m_client_modified.setTimeSpec(Qt::UTC);
     m_server_modified = QDateTime::fromString(js["server_modified"].toString(), "yyyy-MM-ddThh:mm:ssZ");
+    m_server_modified.setTimeSpec(Qt::UTC);
     m_rev = js["rev"].toString();
     m_size = js["size"].toVariant().toString().toULongLong();
 }

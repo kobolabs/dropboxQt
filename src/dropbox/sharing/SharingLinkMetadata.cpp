@@ -37,6 +37,7 @@ void LinkMetadata::fromJson(const QJsonObject& js){
     m_url = js["url"].toString();
     m_visibility.fromJson(js["visibility"].toObject());
     m_expires = QDateTime::fromString(js["expires"].toString(), "yyyy-MM-ddThh:mm:ssZ");
+    m_expires.setTimeSpec(Qt::UTC);
 }
 
 QString LinkMetadata::toString(bool multiline)const

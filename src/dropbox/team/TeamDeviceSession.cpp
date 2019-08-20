@@ -41,7 +41,9 @@ void DeviceSession::fromJson(const QJsonObject& js){
     m_ip_address = js["ip_address"].toString();
     m_country = js["country"].toString();
     m_created = QDateTime::fromString(js["created"].toString(), "yyyy-MM-ddThh:mm:ssZ");
+    m_created.setTimeSpec(Qt::UTC);
     m_updated = QDateTime::fromString(js["updated"].toString(), "yyyy-MM-ddThh:mm:ssZ");
+    m_updated.setTimeSpec(Qt::UTC);
 }
 
 QString DeviceSession::toString(bool multiline)const

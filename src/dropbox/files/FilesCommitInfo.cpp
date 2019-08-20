@@ -38,6 +38,7 @@ void CommitInfo::fromJson(const QJsonObject& js){
     m_mode.fromJson(js["mode"].toObject());
     m_autorename = js["autorename"].toVariant().toBool();
     m_client_modified = QDateTime::fromString(js["client_modified"].toString(), "yyyy-MM-ddThh:mm:ssZ");
+    m_client_modified.setTimeSpec(Qt::UTC);
     m_mute = js["mute"].toVariant().toBool();
 }
 
