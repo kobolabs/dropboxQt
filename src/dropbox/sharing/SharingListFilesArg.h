@@ -65,7 +65,7 @@ namespace sharing{
                 Number of files to return max per query. Defaults to 100 if no
                 limit is specified.
             */
-        int m_limit = {0};
+        int m_limit;
 
             /**
                 File actions to query.

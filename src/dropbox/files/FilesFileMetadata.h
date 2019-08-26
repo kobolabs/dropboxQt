@@ -46,9 +46,15 @@ namespace files{
         */
 
     public:
-        FileMetadata(){};
+        FileMetadata():
+        m_size(0),
+        m_has_explicit_shared_members(false)
+        {};
 
-        FileMetadata(const QString& arg){ m_id = arg; };
+        FileMetadata(const QString& arg):
+        m_size(0),
+        m_has_explicit_shared_members(false)
+        { m_id = arg; };
         virtual ~FileMetadata(){};
 
     public:
@@ -171,7 +177,7 @@ namespace files{
             /**
                 The file size in bytes.
             */
-        int m_size = {0};
+        int m_size;
 
             /**
                 Additional information if the file is a photo or video.

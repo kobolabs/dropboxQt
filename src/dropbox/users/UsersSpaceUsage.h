@@ -21,7 +21,7 @@ namespace users{
         */
 
     public:
-        SpaceUsage(){};
+        SpaceUsage():m_used(0){};
 
         SpaceUsage(const int& arg){ m_used = arg; };
         virtual ~SpaceUsage(){};
@@ -58,7 +58,7 @@ namespace users{
             /**
                 The user's total space usage (bytes).
             */
-        int m_used = {0};
+        int m_used;
 
             /**
                 The user's space allocation.

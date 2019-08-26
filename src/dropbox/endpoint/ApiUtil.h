@@ -209,7 +209,7 @@ namespace dropboxQt {
         void finished();
 
     protected:
-        DropboxBaseTask(ApiEndpoint& ept):m_endpoint(ept){};
+        DropboxBaseTask(ApiEndpoint& ept):m_endpoint(ept),m_in_wait_loop(false){};
 
         void failed_callback(std::unique_ptr<DropboxException> ex) 
         {
@@ -222,7 +222,7 @@ namespace dropboxQt {
     protected:
         std::unique_ptr<DropboxException> m_failed;
         ApiEndpoint& m_endpoint;
-        mutable bool m_in_wait_loop                 { false };
+        mutable bool m_in_wait_loop;
     };
 
     template <class RESULT>
@@ -293,7 +293,7 @@ namespace dropboxQt {
         void waitForResultAndRelease();
 
     protected:
-        DropboxVoidTask(ApiEndpoint& ept):DropboxBaseTask(ept) {};
+        DropboxVoidTask(ApiEndpoint& ept):DropboxBaseTask(ept), m_completed(false) {};
         void completed_callback(void)
         {
             m_completed = true;
@@ -301,7 +301,7 @@ namespace dropboxQt {
         };
 
     protected:
-        bool m_completed = {false};
+        bool m_completed;
     };
 
 };

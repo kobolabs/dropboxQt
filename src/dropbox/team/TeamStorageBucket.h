@@ -22,9 +22,9 @@ namespace team{
         */
 
     public:
-        StorageBucket(){};
+        StorageBucket():m_users(0){};
 
-        StorageBucket(const QString& arg){ m_bucket = arg; };
+        StorageBucket(const QString& arg):m_users(0){ m_bucket = arg; };
         virtual ~StorageBucket(){};
 
     public:
@@ -68,7 +68,7 @@ namespace team{
                 The number of people whose storage is in the range of this
                 storage bucket.
             */
-        int m_users = {0};
+        int m_users;
 
     };//StorageBucket
 

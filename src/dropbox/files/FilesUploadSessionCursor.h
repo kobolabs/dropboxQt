@@ -21,9 +21,9 @@ namespace files{
         */
 
     public:
-        UploadSessionCursor(){};
+        UploadSessionCursor():m_offset(0){};
 
-        UploadSessionCursor(const QString& arg){ m_session_id = arg; };
+        UploadSessionCursor(const QString& arg):m_offset(0){ m_session_id = arg; };
         virtual ~UploadSessionCursor(){};
 
     public:
@@ -69,7 +69,7 @@ namespace files{
                 make sure upload data isn't lost or duplicated in the event of a
                 network error.
             */
-        int m_offset = {0};
+        int m_offset;
 
     };//UploadSessionCursor
 

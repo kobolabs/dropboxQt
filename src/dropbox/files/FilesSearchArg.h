@@ -112,12 +112,12 @@ namespace files{
             /**
                 The starting index within the search results (used for paging).
             */
-        int m_start = {0};
+        int m_start;
 
             /**
                 The maximum number of search results to return.
             */
-        int m_max_results = {0};
+        int m_max_results;
 
             /**
                 The search mode (filename, filename_and_content, or
