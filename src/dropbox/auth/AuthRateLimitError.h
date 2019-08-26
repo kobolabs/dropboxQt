@@ -70,7 +70,7 @@ namespace auth{
                 The number of seconds that the app should wait before making
                 another request.
             */
-        int m_retry_after = {0};
+        int m_retry_after;
 
     };//RateLimitError
 

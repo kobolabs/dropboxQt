@@ -61,7 +61,7 @@ namespace team{
             /**
                 Number of results to return per call.
             */
-        int m_limit = {0};
+        int m_limit;
 
             /**
                 Whether to return removed members.

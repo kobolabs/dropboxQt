@@ -20,9 +20,9 @@ namespace sharing{
         */
 
     public:
-        ListFileMembersCountResult(){};
+        ListFileMembersCountResult():m_member_count(0){};
 
-        ListFileMembersCountResult(const SharedFileMembers& arg){ m_members = arg; };
+        ListFileMembersCountResult(const SharedFileMembers& arg):m_member_count(0){ m_members = arg; };
         virtual ~ListFileMembersCountResult(){};
 
     public:
@@ -62,7 +62,7 @@ namespace sharing{
                 The number of members on this file. This does not include
                 inherited members
             */
-        int m_member_count = {0};
+        int m_member_count;
 
     };//ListFileMembersCountResult
 

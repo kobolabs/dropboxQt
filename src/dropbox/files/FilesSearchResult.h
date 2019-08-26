@@ -23,9 +23,15 @@ namespace files{
         */
 
     public:
-        SearchResult(){};
+        SearchResult():
+        m_more(false),
+        m_start(0)
+        {};
 
-        SearchResult(const std::list <SearchMatch>& arg){ m_matches = arg; };
+        SearchResult(const std::list <SearchMatch>& arg):
+        m_more(false),
+        m_start(0)
+        { m_matches = arg; };
         virtual ~SearchResult(){};
 
     public:
@@ -79,7 +85,7 @@ namespace files{
                 Used for paging. Value to set the start argument to when calling
                 :meth:`search` to fetch the next page of results.
             */
-        int m_start = {0};
+        int m_start;
 
     };//SearchResult
 

@@ -20,9 +20,12 @@ namespace files{
         */
 
     public:
-        Dimensions(){};
+        Dimensions():
+        m_height(0),
+        m_width(0)
+        {};
 
-        Dimensions(const int& arg){ m_height = arg; };
+        Dimensions(const int& arg):m_width(0){ m_height = arg; };
         virtual ~Dimensions(){};
 
     public:
@@ -57,12 +60,12 @@ namespace files{
             /**
                 Height of the photo/video.
             */
-        int m_height = {0};
+        int m_height;
 
             /**
                 Width of the photo/video.
             */
-        int m_width = {0};
+        int m_width;
 
     };//Dimensions
 

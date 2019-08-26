@@ -31,9 +31,9 @@ namespace sharing{
         */
 
     public:
-        FileLinkMetadata(){};
+        FileLinkMetadata():m_size(0){};
 
-        FileLinkMetadata(const QDateTime& arg){ m_client_modified = arg; };
+        FileLinkMetadata(const QDateTime& arg):m_size(0){ m_client_modified = arg; };
         virtual ~FileLinkMetadata(){};
 
     public:
@@ -107,7 +107,7 @@ namespace sharing{
             /**
                 The file size in bytes.
             */
-        int m_size = {0};
+        int m_size;
 
     };//FileLinkMetadata
 

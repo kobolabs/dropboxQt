@@ -18,7 +18,7 @@ namespace files{
         */
 
     public:
-        UploadSessionOffsetError(){};
+        UploadSessionOffsetError():m_correct_offset(0){};
 
         UploadSessionOffsetError(const int& arg){ m_correct_offset = arg; };
         virtual ~UploadSessionOffsetError(){};
@@ -49,7 +49,7 @@ namespace files{
             /**
                 The offset up to which data has been collected.
             */
-        int m_correct_offset = {0};
+        int m_correct_offset;
 
     };//UploadSessionOffsetError
 

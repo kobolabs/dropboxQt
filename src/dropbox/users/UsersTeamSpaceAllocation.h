@@ -20,9 +20,12 @@ namespace users{
         */
 
     public:
-        TeamSpaceAllocation(){};
+        TeamSpaceAllocation():
+        m_used(0),
+        m_allocated(0)
+        {};
 
-        TeamSpaceAllocation(const int& arg){ m_used = arg; };
+        TeamSpaceAllocation(const int& arg):m_allocated(0){ m_used = arg; };
         virtual ~TeamSpaceAllocation(){};
 
     public:
@@ -57,12 +60,12 @@ namespace users{
             /**
                 The total space currently used by the user's team (bytes).
             */
-        int m_used = {0};
+        int m_used;
 
             /**
                 The total space allocated to the user's team (bytes).
             */
-        int m_allocated = {0};
+        int m_allocated;
 
     };//TeamSpaceAllocation
 

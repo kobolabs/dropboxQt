@@ -23,9 +23,9 @@ namespace team{
         */
 
     public:
-        GroupFullInfo(){};
+        GroupFullInfo():m_created(0){};
 
-        GroupFullInfo(const std::list <GroupMemberInfo>& arg){ m_members = arg; };
+        GroupFullInfo(const std::list <GroupMemberInfo>& arg):m_created(0){ m_members = arg; };
         virtual ~GroupFullInfo(){};
 
     public:
@@ -67,7 +67,7 @@ namespace team{
                 The group creation time as a UTC timestamp in milliseconds since
                 the Unix epoch.
             */
-        int m_created = {0};
+        int m_created;
 
     };//GroupFullInfo
 

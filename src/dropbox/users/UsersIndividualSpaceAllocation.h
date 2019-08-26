@@ -18,7 +18,7 @@ namespace users{
         */
 
     public:
-        IndividualSpaceAllocation(){};
+        IndividualSpaceAllocation():m_allocated(0){};
 
         IndividualSpaceAllocation(const int& arg){ m_allocated = arg; };
         virtual ~IndividualSpaceAllocation(){};
@@ -49,7 +49,7 @@ namespace users{
             /**
                 The total space allocated to the user's account (bytes).
             */
-        int m_allocated = {0};
+        int m_allocated;
 
     };//IndividualSpaceAllocation
 

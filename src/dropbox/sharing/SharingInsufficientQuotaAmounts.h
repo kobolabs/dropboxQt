@@ -22,9 +22,16 @@ namespace sharing{
         */
 
     public:
-        InsufficientQuotaAmounts(){};
+        InsufficientQuotaAmounts():
+        m_space_needed(0),
+        m_space_shortage(0),
+        m_space_left(0)
+        {};
 
-        InsufficientQuotaAmounts(const int& arg){ m_space_needed = arg; };
+        InsufficientQuotaAmounts(const int& arg):
+        m_space_shortage(0),
+        m_space_left(0)
+        { m_space_needed = arg; };
         virtual ~InsufficientQuotaAmounts(){};
 
     public:
@@ -68,18 +75,18 @@ namespace sharing{
                 The amount of space needed to add the item (the size of the
                 item).
             */
-        int m_space_needed = {0};
+        int m_space_needed;
 
             /**
                 The amount of extra space needed to add the item.
             */
-        int m_space_shortage = {0};
+        int m_space_shortage;
 
             /**
                 The amount of space left in the user's Dropbox, less than
                 space_needed.
             */
-        int m_space_left = {0};
+        int m_space_left;
 
     };//InsufficientQuotaAmounts
 
