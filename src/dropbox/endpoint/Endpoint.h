@@ -1,6 +1,7 @@
 #pragma once
 
 #include <functional>
+#include <QPointer>
 #include "DropboxHost.h"
 #include "ApiEndpoint.h"
 
@@ -248,12 +249,13 @@ namespace dropboxQt{
             QByteArray bytes2post;
             QNetworkReply *reply = postData(req, bytes2post);
             if (!reply)return;
+            QPointer<QIODevice> w(writeTo);
             QObject::connect(reply, &QNetworkReply::readyRead, [=]()
                              {
                                  qint64 sz = reply->bytesAvailable();
-                                 if (sz > 0 && writeTo != NULL) {
+                                 if (sz > 0 && w != NULL) {
                                      QByteArray data = reply->read(sz);
-                                     writeTo->write(data);
+                                     w->write(data);
                                  }
                              });
 
