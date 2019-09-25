@@ -32,7 +32,7 @@ void ApiEndpoint::cancelAll()
 
 void ApiEndpoint::runEventsLoop()const 
 {
-    m_loop.exec();
+    m_loop.exec(QEventLoop::ExcludeUserInputEvents);
 };
 
 void ApiEndpoint::exitEventsLoop()const 
